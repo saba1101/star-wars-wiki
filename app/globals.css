@@ -30,4 +30,6 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  backdrop-filter: brightness(0.4);
 }
