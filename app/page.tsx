@@ -138,7 +138,7 @@ export default async function Home() {
             >
               {/* Cover placeholder */}
               <div className="from-white-900/70 flex h-48 w-full items-center justify-center overflow-hidden rounded-t-2xl bg-gradient-to-b to-black/70 shadow-inner">
-                <Image
+                {/* <Image
                   src={
                     (person?.name as string).includes("Luke")
                       ? "/images/luke.jpg"
@@ -150,7 +150,7 @@ export default async function Home() {
                   width={300}
                   height={200}
                   className="rounded-full object-cover object-top"
-                />
+                /> */}
               </div>
               <div className="flex flex-col px-6 py-6">
                 <h3 className="mb-1 truncate text-2xl font-bold text-amber-300">
