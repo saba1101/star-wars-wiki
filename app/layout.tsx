@@ -21,14 +21,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} antialiased font-sans`}
+        className={`${inter.variable} min-h-screen font-sans antialiased`}
         style={{ fontFamily: "var(--font-inter), sans-serif" }}
       >
-        <main className="max-w-screen-2xl mx-auto overflow-hidden">
+        <main className="mx-auto max-w-screen-2xl overflow-hidden">
           <Header />
-          <div className="min-h-[100vh] pl-10 pr-10"> {children} </div>
+          <div className="pr-10 pl-10"> {children} </div>
         </main>
-
       </body>
     </html>
   );
