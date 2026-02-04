@@ -9,6 +9,5 @@ export async function getSwapiData(
 ): Promise<SwapiResource[]> {
   const res = await fetch(`${SWAPI_BASE}/${type}/${id ?? ""}`);
   const data = await res.json();
-  console.log(data);
   return Array.isArray(data) ? data : [data];
 }

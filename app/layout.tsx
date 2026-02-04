@@ -25,7 +25,7 @@ export default function RootLayout({
         className={`${inter.variable} min-h-screen font-sans antialiased`}
         style={{ fontFamily: "var(--font-inter), sans-serif" }}
       >
-        <main className="mx-auto max-w-screen-2xl overflow-hidden">
+        <main className="mx-auto h-screen max-w-screen-2xl overflow-y-auto">
           <Header />
           <ViewTransition>
             <div className="pr-10 pl-10"> {children} </div>
