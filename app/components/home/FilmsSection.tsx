@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FilmCard } from "../films/FilmCard";
 
 type Film = Record<string, unknown>;
 
@@ -29,44 +30,7 @@ export function FilmsSection({ films }: FilmsSectionProps) {
       </div>
       <div className="mt-4 flex flex-row flex-wrap justify-start gap-10">
         {films.slice(0, 3).map((film, index) => (
-          <div
-            key={index}
-            className="flex w-auto max-w-120 cursor-pointer flex-col rounded-xl border border-white/25 bg-black/30 p-3 shadow-md backdrop-blur-sm transition-all duration-200 hover:bg-white/20"
-            style={{ boxShadow: "0 2px 8px 0 rgba(31,38,135,0.12)" }}
-          >
-            <div className="mb-3 flex items-center">
-              <div className="mr-3 flex h-12 w-12 items-center justify-center rounded-md bg-white/20">
-                <span className="text-2xl text-amber-300/70">🎬</span>
-              </div>
-              <div>
-                <h3 className="truncate text-lg leading-tight font-bold text-amber-300">
-                  {film.title as string}
-                </h3>
-                <span className="font-mono text-xs text-white/50">
-                  {film.release_date as string}
-                </span>
-              </div>
-            </div>
-            <p className="mb-2 line-clamp-2 text-xs text-white/70 italic">
-              {(film.opening_crawl as string)?.split("\n")[0]}
-            </p>
-            <div className="mb-1 flex flex-row items-center gap-2">
-              <span className="text-xs font-medium text-amber-200">
-                Director:
-              </span>
-              <span className="truncate text-xs text-white/60">
-                {film.director as string}
-              </span>
-            </div>
-            <div className="flex flex-row items-center gap-2">
-              <span className="text-xs font-medium text-amber-200">
-                Producer:
-              </span>
-              <span className="truncate text-xs text-white/50">
-                {film.producer as string}
-              </span>
-            </div>
-          </div>
+          <FilmCard key={(film.url as string) ?? index} film={film} />
         ))}
       </div>
     </section>

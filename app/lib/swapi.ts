@@ -7,7 +7,19 @@ export async function getSwapiData(
   type: SWAPI,
   id: number | string | null,
 ): Promise<SwapiResource[]> {
-  const res = await fetch(`${SWAPI_BASE}/${type}/${id ?? ""}`);
-  const data = await res.json();
-  return Array.isArray(data) ? data : [data];
+  const url = `${SWAPI_BASE}/${type}/${id ?? ""}`;
+  const res = await fetch(url);
+
+  if (!res.ok) {
+    throw new Error(`SWAPI request failed: ${res.status} ${res.statusText} (${url})`);
+  }
+
+  let data: unknown;
+  try {
+    data = await res.json();
+  } catch {
+    throw new Error(`SWAPI invalid response (${url})`);
+  }
+
+  return Array.isArray(data) ? (data as SwapiResource[]) : [data as SwapiResource];
 }

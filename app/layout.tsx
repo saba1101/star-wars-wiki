@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "./components/layout/Header";
 import { ViewTransition } from "react";
+import { Footer } from "./components/layout/Footer";
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -30,6 +32,7 @@ export default function RootLayout({
           <ViewTransition>
             <div className="pr-10 pl-10"> {children} </div>
           </ViewTransition>
+          <Footer />
         </main>
       </body>
     </html>

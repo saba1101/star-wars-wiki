@@ -8,7 +8,7 @@ type CategoryLinksProps = {
 
 export function CategoryLinks({ types, counts }: CategoryLinksProps) {
   return (
-    <div className="mt-8 flex items-center justify-between gap-4 rounded-2xl bg-amber-300/5 p-6 shadow-lg backdrop-blur-xl">
+    <div className="mt-8 flex flex-wrap items-center justify-between gap-4 rounded-2xl bg-amber-300/5 p-6 shadow-lg backdrop-blur-xl">
       {types
         .filter((type) => type !== SWAPI.VEHICLES)
         .map((type) => (

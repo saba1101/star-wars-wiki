@@ -9,7 +9,7 @@ import {
   StarshipsSection,
   SpeciesSection,
 } from "./components/home";
-import { Footer } from "./components/layout/Footer";
+// import { Footer } from "./components/layout/Footer";
 
 export default async function Home() {
   const types = Object.values(SWAPI);
@@ -34,7 +34,7 @@ export default async function Home() {
       <PlanetsSection planets={data.planets} />
       <StarshipsSection starships={data.starships} />
       <SpeciesSection species={data.species} />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
