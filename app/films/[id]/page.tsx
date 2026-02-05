@@ -14,7 +14,10 @@ export default async function FilmDetailPage({ params }: Props) {
     return (
       <div className="mt-10 text-center">
         <h1 className="text-2xl font-bold text-indigo-300">Film not found</h1>
-        <Link href="/films" className="mt-4 inline-block text-indigo-200 underline">
+        <Link
+          href="/films"
+          className="mt-4 inline-block text-indigo-200 underline"
+        >
           Back to films
         </Link>
       </div>
@@ -43,14 +46,27 @@ export default async function FilmDetailPage({ params }: Props) {
             {film.title as string}
           </h1>
           <p className="mt-1 font-mono text-white/50">
-            Episode {(film.episode_id as number) ?? "—"} · {film.release_date as string}
+            Episode {(film.episode_id as number) ?? "—"} ·{" "}
+            {film.release_date as string}
           </p>
         </div>
 
         <div className="space-y-0 p-8">
-          <DetailRow accent="indigo" label="Director" value={film.director as string} />
-          <DetailRow accent="indigo" label="Producer" value={film.producer as string} />
-          <DetailRow accent="indigo" label="Release date" value={film.release_date as string} />
+          <DetailRow
+            accent="indigo"
+            label="Director"
+            value={film.director as string}
+          />
+          <DetailRow
+            accent="indigo"
+            label="Producer"
+            value={film.producer as string}
+          />
+          <DetailRow
+            accent="indigo"
+            label="Release date"
+            value={film.release_date as string}
+          />
         </div>
 
         {crawl && (
@@ -58,7 +74,7 @@ export default async function FilmDetailPage({ params }: Props) {
             <h2 className="mb-3 text-lg font-semibold text-indigo-300">
               Opening crawl
             </h2>
-            <p className="whitespace-pre-wrap text-sm leading-relaxed text-white/80">
+            <p className="text-sm leading-relaxed whitespace-pre-wrap text-white/80">
               {crawl}
             </p>
           </div>
@@ -69,19 +85,52 @@ export default async function FilmDetailPage({ params }: Props) {
             Related resources
           </h2>
           <div className="space-y-4">
-            <DetailList accent="indigo" label="Characters" items={characters} basePath="/people" />
-            <DetailList accent="indigo" label="Planets" items={planets} basePath="/planets" />
-            <DetailList accent="indigo" label="Starships" items={starships} basePath="/starships" />
-            <DetailList accent="indigo" label="Vehicles" items={vehicles} basePath="/vehicles" />
-            <DetailList accent="indigo" label="Species" items={species} basePath="/species" />
+            <DetailList
+              accent="indigo"
+              label="Characters"
+              items={characters}
+              basePath="/people"
+            />
+            <DetailList
+              accent="indigo"
+              label="Planets"
+              items={planets}
+              basePath="/planets"
+            />
+            <DetailList
+              accent="indigo"
+              label="Starships"
+              items={starships}
+              basePath="/starships"
+            />
+            <DetailList
+              accent="indigo"
+              label="Vehicles"
+              items={vehicles}
+              basePath="/vehicles"
+            />
+            <DetailList
+              accent="indigo"
+              label="Species"
+              items={species}
+              basePath="/species"
+            />
           </div>
         </div>
 
         <div className="border-t border-white/10 px-8 py-4">
           <div className="space-y-2 text-xs text-white/50">
-            <DetailRow accent="indigo" label="Created" value={film.created as string} />
-            <DetailRow accent="indigo" label="Edited" value={film.edited as string} />
-            {film.url && (
+            <DetailRow
+              accent="indigo"
+              label="Created"
+              value={film.created as string}
+            />
+            <DetailRow
+              accent="indigo"
+              label="Edited"
+              value={film.edited as string}
+            />
+            {(film.url as string) && (
               <div className="flex flex-wrap justify-between gap-2 border-b border-white/10 py-2">
                 <span className="font-medium text-indigo-200/70">API URL</span>
                 <a
