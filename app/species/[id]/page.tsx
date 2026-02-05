@@ -13,8 +13,13 @@ export default async function SpeciesDetailPage({ params }: Props) {
   if (!species) {
     return (
       <div className="mt-10 text-center">
-        <h1 className="text-2xl font-bold text-violet-300">Species not found</h1>
-        <Link href="/species" className="mt-4 inline-block text-violet-200 underline">
+        <h1 className="text-2xl font-bold text-violet-300">
+          Species not found
+        </h1>
+        <Link
+          href="/species"
+          className="mt-4 inline-block text-violet-200 underline"
+        >
           Back to species
         </Link>
       </div>
@@ -41,20 +46,52 @@ export default async function SpeciesDetailPage({ params }: Props) {
             <h1 className="text-3xl font-bold text-violet-200">
               {species.name as string}
             </h1>
-            <p className="capitalize text-violet-200/70">
+            <p className="text-violet-200/70 capitalize">
               {(species.classification as string) ?? "—"}
             </p>
           </div>
         </div>
 
         <div className="space-y-0 p-8">
-          <DetailRow accent="violet" label="Designation" value={species.designation as string} />
-          <DetailRow accent="violet" label="Average height" value={(species.average_height as string) ? `${species.average_height} cm` : undefined} />
-          <DetailRow accent="violet" label="Skin colors" value={species.skin_colors as string} />
-          <DetailRow accent="violet" label="Hair colors" value={species.hair_colors as string} />
-          <DetailRow accent="violet" label="Eye colors" value={species.eye_colors as string} />
-          <DetailRow accent="violet" label="Average lifespan" value={species.average_lifespan as string} />
-          <DetailRow accent="violet" label="Language" value={species.language as string} />
+          <DetailRow
+            accent="violet"
+            label="Designation"
+            value={species.designation as string}
+          />
+          <DetailRow
+            accent="violet"
+            label="Average height"
+            value={
+              (species.average_height as string)
+                ? `${species.average_height} cm`
+                : undefined
+            }
+          />
+          <DetailRow
+            accent="violet"
+            label="Skin colors"
+            value={species.skin_colors as string}
+          />
+          <DetailRow
+            accent="violet"
+            label="Hair colors"
+            value={species.hair_colors as string}
+          />
+          <DetailRow
+            accent="violet"
+            label="Eye colors"
+            value={species.eye_colors as string}
+          />
+          <DetailRow
+            accent="violet"
+            label="Average lifespan"
+            value={species.average_lifespan as string}
+          />
+          <DetailRow
+            accent="violet"
+            label="Language"
+            value={species.language as string}
+          />
         </div>
 
         <div className="border-t border-white/10 p-8">
@@ -75,16 +112,34 @@ export default async function SpeciesDetailPage({ params }: Props) {
                 </Link>
               </div>
             )}
-            <DetailList accent="violet" label="People" items={people} basePath="/people" />
-            <DetailList accent="violet" label="Films" items={films} basePath="/films" />
+            <DetailList
+              accent="violet"
+              label="People"
+              items={people}
+              basePath="/people"
+            />
+            <DetailList
+              accent="violet"
+              label="Films"
+              items={films}
+              basePath="/films"
+            />
           </div>
         </div>
 
         <div className="border-t border-white/10 px-8 py-4">
           <div className="space-y-2 text-xs text-white/50">
-            <DetailRow accent="violet" label="Created" value={species.created as string} />
-            <DetailRow accent="violet" label="Edited" value={species.edited as string} />
-            {species.url && (
+            <DetailRow
+              accent="violet"
+              label="Created"
+              value={species.created as string}
+            />
+            <DetailRow
+              accent="violet"
+              label="Edited"
+              value={species.edited as string}
+            />
+            {(species.url as string) && (
               <div className="flex flex-wrap justify-between gap-2 border-b border-white/10 py-2">
                 <span className="font-medium text-violet-200/70">API URL</span>
                 <a

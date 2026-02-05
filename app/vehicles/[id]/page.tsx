@@ -13,8 +13,13 @@ export default async function VehicleDetailPage({ params }: Props) {
   if (!vehicle) {
     return (
       <div className="mt-10 text-center">
-        <h1 className="text-2xl font-bold text-orange-300">Vehicle not found</h1>
-        <Link href="/vehicles" className="mt-4 inline-block text-orange-200 underline">
+        <h1 className="text-2xl font-bold text-orange-300">
+          Vehicle not found
+        </h1>
+        <Link
+          href="/vehicles"
+          className="mt-4 inline-block text-orange-200 underline"
+        >
           Back to vehicles
         </Link>
       </div>
@@ -47,15 +52,53 @@ export default async function VehicleDetailPage({ params }: Props) {
         </div>
 
         <div className="space-y-0 p-8">
-          <DetailRow accent="orange" label="Manufacturer" value={vehicle.manufacturer as string} />
-          <DetailRow accent="orange" label="Cost (credits)" value={vehicle.cost_in_credits as string} />
-          <DetailRow accent="orange" label="Length" value={(vehicle.length as string) ? `${vehicle.length} m` : undefined} />
-          <DetailRow accent="orange" label="Max atmosphering speed" value={vehicle.max_atmosphering_speed as string} />
-          <DetailRow accent="orange" label="Crew" value={vehicle.crew as string} />
-          <DetailRow accent="orange" label="Passengers" value={vehicle.passengers as string} />
-          <DetailRow accent="orange" label="Cargo capacity" value={vehicle.cargo_capacity as string} />
-          <DetailRow accent="orange" label="Consumables" value={vehicle.consumables as string} />
-          <DetailRow accent="orange" label="Vehicle class" value={vehicle.vehicle_class as string} />
+          <DetailRow
+            accent="orange"
+            label="Manufacturer"
+            value={vehicle.manufacturer as string}
+          />
+          <DetailRow
+            accent="orange"
+            label="Cost (credits)"
+            value={vehicle.cost_in_credits as string}
+          />
+          <DetailRow
+            accent="orange"
+            label="Length"
+            value={
+              (vehicle.length as string) ? `${vehicle.length} m` : undefined
+            }
+          />
+          <DetailRow
+            accent="orange"
+            label="Max atmosphering speed"
+            value={vehicle.max_atmosphering_speed as string}
+          />
+          <DetailRow
+            accent="orange"
+            label="Crew"
+            value={vehicle.crew as string}
+          />
+          <DetailRow
+            accent="orange"
+            label="Passengers"
+            value={vehicle.passengers as string}
+          />
+          <DetailRow
+            accent="orange"
+            label="Cargo capacity"
+            value={vehicle.cargo_capacity as string}
+          />
+          <DetailRow
+            accent="orange"
+            label="Consumables"
+            value={vehicle.consumables as string}
+          />
+          <DetailRow
+            accent="orange"
+            label="Vehicle class"
+            value={vehicle.vehicle_class as string}
+          />
         </div>
 
         <div className="border-t border-white/10 p-8">
@@ -63,16 +106,34 @@ export default async function VehicleDetailPage({ params }: Props) {
             Related resources
           </h2>
           <div className="space-y-4">
-            <DetailList accent="orange" label="Pilots" items={pilots} basePath="/people" />
-            <DetailList accent="orange" label="Films" items={films} basePath="/films" />
+            <DetailList
+              accent="orange"
+              label="Pilots"
+              items={pilots}
+              basePath="/people"
+            />
+            <DetailList
+              accent="orange"
+              label="Films"
+              items={films}
+              basePath="/films"
+            />
           </div>
         </div>
 
         <div className="border-t border-white/10 px-8 py-4">
           <div className="space-y-2 text-xs text-white/50">
-            <DetailRow accent="orange" label="Created" value={vehicle.created as string} />
-            <DetailRow accent="orange" label="Edited" value={vehicle.edited as string} />
-            {vehicle.url && (
+            <DetailRow
+              accent="orange"
+              label="Created"
+              value={vehicle.created as string}
+            />
+            <DetailRow
+              accent="orange"
+              label="Edited"
+              value={vehicle.edited as string}
+            />
+            {(vehicle.url as string) && (
               <div className="flex flex-wrap justify-between gap-2 border-b border-white/10 py-2">
                 <span className="font-medium text-orange-200/70">API URL</span>
                 <a

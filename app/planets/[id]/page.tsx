@@ -14,8 +14,13 @@ export default async function PlanetDetailPage({ params }: Props) {
   if (!planet) {
     return (
       <div className="mt-10 text-center">
-        <h1 className="text-2xl font-bold text-emerald-300">Planet not found</h1>
-        <Link href="/planets" className="mt-4 inline-block text-emerald-200 underline">
+        <h1 className="text-2xl font-bold text-emerald-300">
+          Planet not found
+        </h1>
+        <Link
+          href="/planets"
+          className="mt-4 inline-block text-emerald-200 underline"
+        >
           Back to planets
         </Link>
       </div>
@@ -50,14 +55,54 @@ export default async function PlanetDetailPage({ params }: Props) {
               {planet.name as string}
             </h1>
             <div className="mt-6 space-y-0">
-              <DetailRow accent="emerald" label="Rotation period" value={planet.rotation_period as string} />
-              <DetailRow accent="emerald" label="Orbital period" value={planet.orbital_period as string} />
-              <DetailRow accent="emerald" label="Diameter" value={(planet.diameter as string) ? `${planet.diameter} km` : undefined} />
-              <DetailRow accent="emerald" label="Climate" value={planet.climate as string} />
-              <DetailRow accent="emerald" label="Gravity" value={planet.gravity as string} />
-              <DetailRow accent="emerald" label="Terrain" value={planet.terrain as string} />
-              <DetailRow accent="emerald" label="Surface water" value={(planet.surface_water as string) ? `${planet.surface_water}%` : undefined} />
-              <DetailRow accent="emerald" label="Population" value={planet.population as string} />
+              <DetailRow
+                accent="emerald"
+                label="Rotation period"
+                value={planet.rotation_period as string}
+              />
+              <DetailRow
+                accent="emerald"
+                label="Orbital period"
+                value={planet.orbital_period as string}
+              />
+              <DetailRow
+                accent="emerald"
+                label="Diameter"
+                value={
+                  (planet.diameter as string)
+                    ? `${planet.diameter} km`
+                    : undefined
+                }
+              />
+              <DetailRow
+                accent="emerald"
+                label="Climate"
+                value={planet.climate as string}
+              />
+              <DetailRow
+                accent="emerald"
+                label="Gravity"
+                value={planet.gravity as string}
+              />
+              <DetailRow
+                accent="emerald"
+                label="Terrain"
+                value={planet.terrain as string}
+              />
+              <DetailRow
+                accent="emerald"
+                label="Surface water"
+                value={
+                  (planet.surface_water as string)
+                    ? `${planet.surface_water}%`
+                    : undefined
+                }
+              />
+              <DetailRow
+                accent="emerald"
+                label="Population"
+                value={planet.population as string}
+              />
             </div>
           </div>
         </div>
@@ -67,16 +112,34 @@ export default async function PlanetDetailPage({ params }: Props) {
             Related resources
           </h2>
           <div className="space-y-4">
-            <DetailList accent="emerald" label="Residents" items={residents} basePath="/people" />
-            <DetailList accent="emerald" label="Films" items={films} basePath="/films" />
+            <DetailList
+              accent="emerald"
+              label="Residents"
+              items={residents}
+              basePath="/people"
+            />
+            <DetailList
+              accent="emerald"
+              label="Films"
+              items={films}
+              basePath="/films"
+            />
           </div>
         </div>
 
         <div className="border-t border-white/10 px-8 py-4">
           <div className="space-y-2 text-xs text-white/50">
-            <DetailRow accent="emerald" label="Created" value={planet.created as string} />
-            <DetailRow accent="emerald" label="Edited" value={planet.edited as string} />
-            {planet.url && (
+            <DetailRow
+              accent="emerald"
+              label="Created"
+              value={planet.created as string}
+            />
+            <DetailRow
+              accent="emerald"
+              label="Edited"
+              value={planet.edited as string}
+            />
+            {(planet.url as string) && (
               <div className="flex flex-wrap justify-between gap-2 border-b border-white/10 py-2">
                 <span className="font-medium text-emerald-200/70">API URL</span>
                 <a

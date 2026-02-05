@@ -14,7 +14,10 @@ export default async function StarshipDetailPage({ params }: Props) {
     return (
       <div className="mt-10 text-center">
         <h1 className="text-2xl font-bold text-sky-300">Starship not found</h1>
-        <Link href="/starships" className="mt-4 inline-block text-sky-200 underline">
+        <Link
+          href="/starships"
+          className="mt-4 inline-block text-sky-200 underline"
+        >
           Back to starships
         </Link>
       </div>
@@ -49,17 +52,67 @@ export default async function StarshipDetailPage({ params }: Props) {
         </div>
 
         <div className="space-y-0 p-8">
-          <DetailRow accent="sky" label="Manufacturer" value={starship.manufacturer as string} />
-          <DetailRow accent="sky" label="Cost (credits)" value={starship.cost_in_credits as string} />
-          <DetailRow accent="sky" label="Length" value={(starship.length as string) ? `${starship.length} m` : undefined} />
-          <DetailRow accent="sky" label="Max atmosphering speed" value={(starship.max_atmosphering_speed as string) ? `${starship.max_atmosphering_speed}` : undefined} />
-          <DetailRow accent="sky" label="Crew" value={starship.crew as string} />
-          <DetailRow accent="sky" label="Passengers" value={starship.passengers as string} />
-          <DetailRow accent="sky" label="Cargo capacity" value={starship.cargo_capacity as string} />
-          <DetailRow accent="sky" label="Consumables" value={starship.consumables as string} />
-          <DetailRow accent="sky" label="Hyperdrive rating" value={starship.hyperdrive_rating as string} />
-          <DetailRow accent="sky" label="MGLT" value={starship.MGLT as string} />
-          <DetailRow accent="sky" label="Starship class" value={starship.starship_class as string} />
+          <DetailRow
+            accent="sky"
+            label="Manufacturer"
+            value={starship.manufacturer as string}
+          />
+          <DetailRow
+            accent="sky"
+            label="Cost (credits)"
+            value={starship.cost_in_credits as string}
+          />
+          <DetailRow
+            accent="sky"
+            label="Length"
+            value={
+              (starship.length as string) ? `${starship.length} m` : undefined
+            }
+          />
+          <DetailRow
+            accent="sky"
+            label="Max atmosphering speed"
+            value={
+              (starship.max_atmosphering_speed as string)
+                ? `${starship.max_atmosphering_speed}`
+                : undefined
+            }
+          />
+          <DetailRow
+            accent="sky"
+            label="Crew"
+            value={starship.crew as string}
+          />
+          <DetailRow
+            accent="sky"
+            label="Passengers"
+            value={starship.passengers as string}
+          />
+          <DetailRow
+            accent="sky"
+            label="Cargo capacity"
+            value={starship.cargo_capacity as string}
+          />
+          <DetailRow
+            accent="sky"
+            label="Consumables"
+            value={starship.consumables as string}
+          />
+          <DetailRow
+            accent="sky"
+            label="Hyperdrive rating"
+            value={starship.hyperdrive_rating as string}
+          />
+          <DetailRow
+            accent="sky"
+            label="MGLT"
+            value={starship.MGLT as string}
+          />
+          <DetailRow
+            accent="sky"
+            label="Starship class"
+            value={starship.starship_class as string}
+          />
         </div>
 
         <div className="border-t border-white/10 p-8">
@@ -67,16 +120,34 @@ export default async function StarshipDetailPage({ params }: Props) {
             Related resources
           </h2>
           <div className="space-y-4">
-            <DetailList accent="sky" label="Pilots" items={pilots} basePath="/people" />
-            <DetailList accent="sky" label="Films" items={films} basePath="/films" />
+            <DetailList
+              accent="sky"
+              label="Pilots"
+              items={pilots}
+              basePath="/people"
+            />
+            <DetailList
+              accent="sky"
+              label="Films"
+              items={films}
+              basePath="/films"
+            />
           </div>
         </div>
 
         <div className="border-t border-white/10 px-8 py-4">
           <div className="space-y-2 text-xs text-white/50">
-            <DetailRow accent="sky" label="Created" value={starship.created as string} />
-            <DetailRow accent="sky" label="Edited" value={starship.edited as string} />
-            {starship.url && (
+            <DetailRow
+              accent="sky"
+              label="Created"
+              value={starship.created as string}
+            />
+            <DetailRow
+              accent="sky"
+              label="Edited"
+              value={starship.edited as string}
+            />
+            {(starship.url as string) && (
               <div className="flex flex-wrap justify-between gap-2 border-b border-white/10 py-2">
                 <span className="font-medium text-sky-200/70">API URL</span>
                 <a
