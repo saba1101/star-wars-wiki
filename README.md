@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Star Wars Wiki
+
+A modern Star Wars encyclopedia built with **Next.js 16**, **React 19**, and **Tailwind CSS 4**, powered by the [SWAPI API](https://swapi.info/).
+
+Browse films, characters, planets, starships, vehicles, and species from the Star Wars universe — each with detailed pages showing every piece of data the API has to offer.
+
+## Features
+
+- **Six resource categories** — Films, People, Planets, Starships, Vehicles, Species
+- **Grid listing pages** with styled cards for each category
+- **Detail pages** that display all API fields, related resources with cross-linking, and metadata
+- **Rich landing page** with hero section, category quick-links, and featured sections
+- **Responsive design** — desktop navigation bar + mobile slide-in sidebar menu
+- **Error handling** — per-route error boundaries with a "Try again" button
+- **Server Components** — data is fetched on the server for fast initial loads
+- **Component architecture** — reusable card components, shared detail helpers, and clean page composition
+
+## Tech Stack
+
+| Tool                                          | Version         |
+| --------------------------------------------- | --------------- |
+| [Next.js](https://nextjs.org/)                | 16 (App Router) |
+| [React](https://react.dev/)                   | 19              |
+| [Tailwind CSS](https://tailwindcss.com/)      | 4               |
+| [TypeScript](https://www.typescriptlang.org/) | 5               |
+| [SWAPI](https://swapi.info/)                  | Public REST API |
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm, yarn, pnpm, or bun
+
+### Install & Run
 
 ```bash
+# Clone the repo
+git clone https://github.com/<your-username>/star-wars-wiki.git
+cd star-wars-wiki
+
+# Install dependencies
+npm install
+
+# Start the dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Build for Production
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+```
+app/
+├── components/
+│   ├── error/          # Reusable error fallback UI
+│   ├── films/          # FilmCard
+│   ├── home/           # Homepage sections (Hero, CategoryLinks, Films, Characters, Planets, Starships, Species)
+│   ├── layout/         # Header, Footer, MobileMenu
+│   ├── people/         # PersonCard, personImagePath
+│   ├── planets/        # PlanetCard
+│   ├── shared/         # DetailRow, DetailList, resourceId
+│   ├── species/        # SpeciesCard
+│   ├── starships/      # StarshipCard
+│   └── vehicles/       # VehicleCard
+├── films/              # /films listing + /films/[id] detail
+├── people/             # /people listing + /people/[id] detail
+├── planets/            # /planets listing + /planets/[id] detail
+├── starships/          # /starships listing + /starships/[id] detail
+├── vehicles/           # /vehicles listing + /vehicles/[id] detail
+├── species/            # /species listing + /species/[id] detail
+├── lib/                # SWAPI fetch helper + type definitions
+├── page.tsx            # Landing page
+├── layout.tsx          # Root layout
+├── error.tsx           # Root error boundary
+└── globals.css         # Global styles + background
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Data Source
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+All Star Wars data is provided by the **Star Wars API (SWAPI)** — [swapi.info](https://swapi.info/).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Star Wars data © Lucasfilm / Disney. This project is not affiliated with or endorsed by Lucasfilm or Disney.
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
